@@ -12,6 +12,7 @@
         <button id="menu-btn">&#9776;</button>
         <nav id="menu">
             <a href="#sobre">Sobre</a>
+            <a href="#habilidades">Habilidades</a>
             <a href="#contato">Contato</a>
             <a href="#projetos">Projetos</a>
         </nav>
@@ -26,8 +27,14 @@
     <section id="inicio">
         <img src="img/avatar.gif" alt="Avatar da Ana Caroline programando" class="avatar">
         <div class="apresentacao">
-            <h1>Ana Caroline Santos Queiroz</h1>
-            <p>Estudante de Análise e Desenvolvimento de Sistemas</p>
+            <p class="ola">Olá, eu sou</p>
+            <h1>Ana Caroline<br><span class="destaque">Santos Queiroz</span></h1>
+            <p class="digitando"><span id="frase"></span><span class="cursor">|</span></p>
+            <p class="local">📍 Brasília, DF</p>
+            <div class="botoes">
+                <a href="#projetos" class="botao">Ver projetos</a>
+                <a href="#contato" class="botao botao-contorno">Fale comigo</a>
+            </div>
         </div>
     </section>
 
@@ -39,21 +46,35 @@
             <p>Fora da tecnologia, gosto de ler, viajar e cuidar dos meus pets. Meu objetivo é me tornar desenvolvedora e continuar evoluindo a cada projeto.</p>
         </section>
 
+        <section id="habilidades">
+            <h2>Linguagens e Ferramentas</h2>
+
+            <h3 class="categoria">Linguagens</h3>
+            <div class="tags">
+                <span class="tag-skill">HTML5</span>
+                <span class="tag-skill">CSS3</span>
+                <span class="tag-skill">JavaScript</span>
+                <span class="tag-skill">C</span>
+            </div>
+
+            <h3 class="categoria">Banco de Dados</h3>
+            <div class="tags">
+                <span class="tag-skill">SQL</span>
+                <span class="tag-skill">MySQL</span>
+            </div>
+
+            <h3 class="categoria">Ferramentas</h3>
+            <div class="tags">
+                <span class="tag-skill">Git</span>
+                <span class="tag-skill">GitHub</span>
+                <span class="tag-skill">VS Code</span>
+            </div>
+        </section>
+
         <section id="projetos">
             <h2>Projetos</h2>
-            <div class="cards">
-                <a href="https://anaqueiroz08.github.io/NOME-DO-REPOSITORIO/" target="_blank" class="card">
-                    <h3>RoyalPet</h3>
-                    <p>Site para pet shop desenvolvido no 1º semestre, com galeria, mapa e contato.</p>
-                </a>
-                <div class="card">
-                    <h3>Meu Portfólio</h3>
-                    <p>Este site! Feito com HTML, CSS e JavaScript, responsivo para celular.</p>
-                </div>
-                <div class="card">
-                    <h3>Em breve</h3>
-                    <p>Novos projetos chegando conforme avanço no curso.</p>
-                </div>
+            <div class="cards" id="lista-projetos">
+                <p>Carregando projetos...</p>
             </div>
             <a href="https://github.com/anaqueiroz08" target="_blank" class="botao perfil">Ver meu perfil no GitHub</a>
         </section>
