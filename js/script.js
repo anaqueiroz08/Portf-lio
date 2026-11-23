@@ -51,91 +51,62 @@ function digitar() {
     setTimeout(digitar, espera);
 }
 
-// Só começa a digitar se a frase existir na página
 if (elementoFrase) {
     digitar();
 }
 
-// Cores das capas reservas (usadas se a imagem não for encontrada)
-const coresCapas = [
-    ['#4a148c', '#ab47bc'],
-    ['#1a237e', '#7e57c2'],
-    ['#6a1b9a', '#ec407a'],
-    ['#000000', '#a64ca6'],
-    ['#311b92', '#00acc1']
+// Lista dos meus projetos
+const projetos = [
+    {
+        imagem: 'img/Portf-lio.png',
+        descricao: 'Meu portfólio pessoal, feito com HTML, CSS e JavaScript.',
+        link: 'https://github.com/anaqueiroz08/Portf-lio'
+    },
+    {
+        imagem: 'img/royalpet-site-html-css.png',
+        descricao: 'Site para pet shop com galeria e formulário de contato, feito com HTML5 e CSS3.',
+        link: 'https://github.com/anaqueiroz08/royalpet-site-html-css'
+    },
+    {
+        imagem: 'img/menu-exercicios-c.png',
+        descricao: 'Programa em C com menu interativo: calculadora e classificação de idade.',
+        link: 'https://github.com/anaqueiroz08/menu-exercicios-c'
+    },
+    {
+        imagem: 'img/cadastro-alunos-cursos-sql.png',
+        descricao: 'Script SQL que cria e consulta tabelas de alunos e cursos.',
+        link: 'https://github.com/anaqueiroz08/cadastro-alunos-cursos-sql'
+    },
+    {
+        imagem: 'img/desafio-colaborativo-git.png',
+        descricao: 'Projeto em equipe para praticar branches, pull requests e merges no Git.',
+        link: 'https://github.com/anaqueiroz08/desafio-colaborativo-git'
+    },
+    {
+        imagem: 'img/linguagens.png',
+        descricao: 'HTML5, CSS3, JavaScript, C, SQL, MySQL, Git e GitHub.',
+        link: '#habilidades'
+    }
 ];
 
-// Buscar os projetos do GitHub
+// Montar os cards na página
 const lista = document.getElementById('lista-projetos');
+lista.innerHTML = '';
 
-fetch('https://api.github.com/users/anaqueiroz08/repos?sort=updated')
-    .then(function (resposta) {
-        if (!resposta.ok) {
-            throw new Error('GitHub não respondeu');
-        }
-        return resposta.json();
-    })
-    .then(function (repositorios) {
-        lista.innerHTML = '';
+projetos.forEach(function (projeto) {
+    const card = document.createElement('a');
+    card.className = 'card';
+    card.href = projeto.link;
 
-        // Esconde o repositório do README do perfil
-        const projetos = repositorios.filter(function (repo) {
-            return repo.name !== 'anaqueiroz08';
-        });
+    // Links externos abrem em outra aba
+    if (projeto.link.startsWith('http')) {
+        card.target = '_blank';
+    }
 
-        projetos.forEach(function (repo, i) {
-            // Link: site publicado ou repositório
-            let link = repo.html_url;
-            if (repo.has_pages) {
-                link = 'https://anaqueiroz08.github.io/' + repo.name + '/';
-            }
+    card.innerHTML =
+        '<img src="' + projeto.imagem + '" alt="Capa do projeto">' +
+        '<div class="info"><p>' + projeto.descricao + '</p>' +
+        '<span class="ver">Ver projeto →</span></div>';
 
-            const descricao = repo.description || 'Projeto desenvolvido durante o curso.';
-
-            // O card (é um link)
-            const card = document.createElement('a');
-            card.className = 'card';
-            card.href = link;
-            card.target = '_blank';
-
-            // A imagem de capa (na pasta img, com o nome do repositório)
-            const imagem = document.createElement('img');
-            imagem.src = 'img/' + repo.name + '.png';
-            imagem.alt = 'Capa do projeto ' + repo.name;
-
-            // Se a imagem não existir, cria uma capa colorida no lugar
-            imagem.onerror = function () {
-                const cores = coresCapas[i % coresCapas.length];
-                const capa = document.createElement('div');
-                capa.className = 'capa';
-                capa.style.background = 'linear-gradient(135deg, ' + cores[0] + ', ' + cores[1] + ')';
-                capa.innerHTML =
-                    '<span class="icone">&lt;/&gt;</span>' +
-                    '<span class="titulo">' + repo.name + '</span>' +
-                    '<span class="tag">' + (repo.language || 'Web') + '</span>';
-                imagem.replaceWith(capa);
-            };
-
-            // O texto que aparece ao passar o mouse
-            const info = document.createElement('div');
-            info.className = 'info';
-            info.innerHTML = '<p>' + descricao + '</p><span class="ver">Ver projeto →</span>';
-
-            card.appendChild(imagem);
-            card.appendChild(info);
-            lista.appendChild(card);
-        });
-
-        // Quadradinho das linguagens (fica no final)
-        const cardLinguagens = document.createElement('a');
-        cardLinguagens.className = 'card';
-        cardLinguagens.href = '#habilidades';
-        cardLinguagens.innerHTML =
-            '<img src="img/linguagens.png" alt="Linguagens que eu uso">' +
-            '<div class="info"><p>HTML5, CSS3, JavaScript, C, SQL, MySQL, Git e GitHub</p>' +
-            '<span class="ver">Ver habilidades →</span></div>';
-        lista.appendChild(cardLinguagens);
-    })
-    .catch(function () {
-        lista.innerHTML = '<p>Não foi possível carregar os projetos agora. Tente atualizar a página ou veja no meu GitHub.</p>';
-    });
+    lista.appendChild(card);
+});
