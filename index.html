@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu portfólio</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <button id="menu-btn">&#9776;</button>
+        <nav id="menu">
+            <a href="#sobre">Sobre</a>
+            <a href="#contato">Contato</a>
+            <a href="#projetos">Projetos</a>
+        </nav>
+    </header>
+
+    <div class="onda">
+        <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+            <path d="M0,40 C240,90 480,0 720,40 C960,80 1200,10 1440,40 L1440,100 L0,100 Z"></path>
+        </svg>
+    </div>
+
+    <section id="inicio">
+        <img src="img/avatar.gif" alt="Avatar da Ana Caroline programando" class="avatar">
+        <div class="apresentacao">
+            <h1>Ana Caroline Santos Queiroz</h1>
+            <p>Estudante de Análise e Desenvolvimento de Sistemas</p>
+        </div>
+    </section>
+
+    <main>
+        <section id="sobre">
+            <h2>Sobre mim</h2>
+            <p>Olá! Meu nome é Ana Caroline, sou estudante de Análise e Desenvolvimento de Sistemas na UDF e estou dando os primeiros passos no mundo da programação.</p>
+            <p>Comecei o curso em 2026 e, desde então, venho aprendendo HTML, CSS e JavaScript na prática, criando projetos como o site RoyalPet.</p>
+            <p>Fora da tecnologia, gosto de ler, viajar e cuidar dos meus pets. Meu objetivo é me tornar desenvolvedora e continuar evoluindo a cada projeto.</p>
+        </section>
+
+        <section id="projetos">
+            <h2>Projetos</h2>
+            <div class="cards">
+                <a href="https://anaqueiroz08.github.io/NOME-DO-REPOSITORIO/" target="_blank" class="card">
+                    <h3>RoyalPet</h3>
+                    <p>Site para pet shop desenvolvido no 1º semestre, com galeria, mapa e contato.</p>
+                </a>
+                <div class="card">
+                    <h3>Meu Portfólio</h3>
+                    <p>Este site! Feito com HTML, CSS e JavaScript, responsivo para celular.</p>
+                </div>
+                <div class="card">
+                    <h3>Em breve</h3>
+                    <p>Novos projetos chegando conforme avanço no curso.</p>
+                </div>
+            </div>
+            <a href="https://github.com/anaqueiroz08" target="_blank" class="botao perfil">Ver meu perfil no GitHub</a>
+        </section>
+
+        <section id="contato">
+            <h2>Contato</h2>
+            <p>Vamos conversar? Me encontre por aqui:</p>
+            <div class="botoes">
+                <a href="mailto:seuemail@exemplo.com" class="botao">E-mail</a>
+                <a href="https://github.com/anaqueiroz08" target="_blank" class="botao">GitHub</a>
+                <a href="https://linkedin.com/in/SEU-USUARIO" target="_blank" class="botao">LinkedIn</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© <span id="ano"></span> Ana Caroline Santos Queiroz</p>
+        <button id="topo-btn">↑ Topo</button>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
